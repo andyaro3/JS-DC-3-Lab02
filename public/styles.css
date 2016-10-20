@@ -1,0 +1,80 @@
+/*FONTS
+font-family: 'Raleway', sans-serif; 
+font-family: 'Lobster Two', cursive;
+
+COLORS
+hsla(268, 100%, 50%, 1) deep purple
+hsla(268, 100%, 73%, 1) light purple
+hsla(0, 0%, 100%, 1) white
+hsla(0, 0%, 0%, 1) black
+*/
+
+/* Clear fix hack */
+.clearfix:after {
+  clear: both;
+  content: ".";
+  display: block;
+  height: 0;
+  line-height: 0;
+  visibility: hidden;
+}
+
+body {
+  font-family: 'Raleway', sans-serif; 
+  font-size: 14px;
+  background-color: hsla(268, 100%, 50%, 1) /*deep purple*/
+}
+
+h1 {
+  font-family: 'Lobster Two', cursive;
+  font-size: 60px;
+  margin: 30px 30px 0 30px;
+  width: 100px;
+  float: left;
+  color: white;
+}
+
+nav {
+  float: left;
+  margin: 50px 0 0 20px;
+}
+
+nav ul li {
+  display: inline-block;
+  padding: 5px 10px;
+  border: 1px solid hsla(268, 100%, 73%, 1) /*light purple*/;
+  margin: 5px 5px 5px 0;
+    transition: background-color .33s ease-in;   
+    transition-delay: .1s;
+}
+  nav ul li:hover {
+    background-color: white;
+    transition-delay: 0s;
+  }
+
+nav ul li a {
+  color: hsla(268, 100%, 73%, 1) /*light purple*/;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.templateName {
+  font-style: italic;
+  color: lightgrey;
+}
+
+
+
+
+/*ADD MORE STYLES */
+
+
+
+
+footer p {
+  font-family: 'Lobster Two', cursive;
+  font-size: 20px;
+  color: white;
+  margin: 20px;
+  text-align: center;
+}

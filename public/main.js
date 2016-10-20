@@ -1,0 +1,1 @@
+console.log("connecting \"main.js\" file from Public folder")
