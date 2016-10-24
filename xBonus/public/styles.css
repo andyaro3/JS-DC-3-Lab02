@@ -1,0 +1,148 @@
+/*FONTS
+font-family: 'Raleway', sans-serif; 
+font-family: 'Lobster Two', cursive;
+
+COLORS
+hsla(268, 100%, 50%, 1) deep purple
+hsla(268, 100%, 73%, 1) light purple
+hsla(0, 0%, 100%, 1) white
+hsla(0, 0%, 0%, 1) black
+*/
+
+/* Clear fix hack */
+.clearfix:after {
+  clear: both;
+  content: ".";
+  display: block;
+  height: 0;
+  line-height: 0;
+  visibility: hidden;
+}
+
+body {
+  font-family: 'Raleway', sans-serif; 
+  font-size: 14px;
+  background-color: hsla(268, 100%, 50%, 1) /*deep purple*/
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  font-family: 'Lobster Two', cursive;
+  font-size: 60px;
+  margin: 30px 30px 0 30px;
+  width: 100px;
+  float: left;
+  color: white;
+}
+
+nav {
+  float: left;
+  margin: 50px 0 0 20px;
+}
+
+  nav ul li {
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid hsla(268, 100%, 73%, 1) /*light purple*/;
+    margin: 5px 5px 5px 0;
+      transition: background-color .33s ease;   
+  }
+    nav ul li:hover {
+      background-color: white;
+    }
+
+    nav ul li a {
+      color: hsla(268, 100%, 73%, 1) /*light purple*/;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+.templateName {
+  font-style: italic;
+  color: purple;
+  text-align: right;
+  font-size: 8px;
+}
+
+
+
+
+/*ADD MORE STYLES */
+
+.dbList {
+  width: 90%;
+  margin: 0 0 0 20px;
+  border: 1px solid hsla(268, 100%, 73%, 1) /*light purple*/;
+  padding: 2.5px;
+}
+
+  .dbList h2 {
+    font-family: 'Lobster Two', cursive;
+    font-size: 20px;
+    color: white;
+    margin: 10px;
+  }
+
+  form {
+    margin: 10px 0 10px 10px;
+  }
+
+  form h4, form input, form button {
+    margin: 5px 0 5px 10px;
+  }
+
+.dbItem {
+  display: block;
+  margin: 1px;
+  height: 20px;
+  border: 1px solid white;
+  margin: 2.5px 0;
+  padding: 20px;
+  color: hsla(268, 100%, 73%, 1) /*light purple*/;
+  font-weight: 700;
+    transition: background-color .33s ease;   
+}
+
+  .dbItem:hover {
+    background-color: white;
+  }
+
+  .dbItem img {
+    height: 30px;
+    width: 30px;
+    float: left;
+    margin: 0 10px 0 0;
+    background-color: grey;
+  }
+
+.dbItemNoHover {
+  display: block;
+  margin: 1px;
+  height: 20px;
+  border: 1px solid white;
+  margin: 2.5px 0;
+  padding: 20px;
+  color: hsla(268, 100%, 73%, 1) /*light purple*/;
+  font-weight: 700;
+    transition: background-color .33s ease;   
+}
+
+  .artistThumbnail {
+    height: 100px;
+    width: 100px;
+    float: left;
+    margin: 0 20px 0 0;
+    background-color: grey;
+  }
+
+
+footer p {
+  font-family: 'Lobster Two', cursive;
+  font-size: 20px;
+  color: white;
+  margin: 20px;
+  text-align: center;
+}

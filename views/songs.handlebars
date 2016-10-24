@@ -1,9 +1,24 @@
 <div class="templateName"> songs </div>
 
-{{#if songs}}
-	<div> showing all songs </div>
+<div class="dbList">
+	<h2>All Songs in DB</h2>
+		<div>
+			{{#if songs}}
+				{{#each songs}}
+					<a href="/artist/{{id}}"> 
+					<div class="dbItem">
+						<img src="{{album}}"/> <h3>{{title}} - by {{artist}}</h3>
+						<!-- <img {{bind-attr src="picture"}} /> picture not working -->
 
-{{else}}
-	<div> there are no songs yet - go ADD some to your favorite artists! </div>
+					</div> </a>
+				{{/each}}
 
-{{/if}}
+			{{else}}
+				<div class="dbItem"> 
+					there are no songs yet - go ADD some under the artist!
+				</div>
+
+			{{/if}}
+		</div>
+
+</div>

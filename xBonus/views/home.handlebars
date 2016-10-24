@@ -1,0 +1,32 @@
+<div class="templateName"> home </div>
+
+<div class="dbList">
+	<h2>All Artists in DB</h2>
+		<div>
+			{{#if artists}}
+				{{#each artists}}
+					<a href="/artist/{{id}}"> 
+					<div class="dbItem">
+						<img src="{{picture}}"/> <h3>{{artist}}</h3>
+						<!-- <img {{bind-attr src="picture"}} /> picture not working -->
+
+					</div> </a>
+				{{/each}}
+
+			{{else}}
+				<div class="dbItem"> 
+					there are no artists yet - go ADD some above!
+				</div>
+
+			{{/if}}
+		</div>
+
+</div>
+
+<!-- Handlebars.registerHelper("Image", function(url) {
+  var url = Handlebars.escapeExpression(url)
+
+  return new Handlebars.SafeString(
+    "<img src='" + url + "'>"
+  );
+}); -->

@@ -35,10 +35,6 @@ app.get("/addArtist", function( request, response ) {
   response.render("addArtist") 
 })
 
-app.get("/addSong", function( request, response ) {
-  response.render("artistInfo") 
-})
-
 app.get("/artist/:id", function( request, response ) {
   Artist.findById( request.params.id, function( err, data ){
     response.render( "artistInfo", { artistData: data } )

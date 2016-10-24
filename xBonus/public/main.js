@@ -89,7 +89,7 @@ $("#newSongForm").on("submit", function(event) {
 		album: "" // [request.body.song1, request.body.song2, request.body.song3, request.body.song4] Array
 	})
 
-	console.log( buildURL2($('input[name="track"]').val()) )
+	console.log( buildURL($('input[name="track"]').val()) )
 
 	if ( $('input[name="track"]').val() == "" ) { // planning on adding in a "check if artist matches" clause
 		alert("You must enter a song title into the search to add!")
@@ -106,7 +106,7 @@ $("#newSongForm").on("submit", function(event) {
 		        Song.artist = data.tracks.items[0].artists.name;
 		        Song.spotifyID = data.tracks.items[0].id;
 		        Song.length = data.tracks.items[0].duration_ms; 
-		        Song.album = data.tracks.items[0].album.images[0];
+		        Song.album = tracks.items[0].album.images[0];
 
 		        // ADD SAVE
 		        saveSong(Song)
