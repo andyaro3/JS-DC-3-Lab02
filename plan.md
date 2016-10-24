@@ -26,15 +26,16 @@ Andy Aronoff
   * touch addArtist.handlebars in view folder
   * add form elements to addArtist.handlebars
   * create addArtist route in index.js
-  * 
-  * 
-  * 
-  * 
-  * 
-  * 
-  * 
-  * 
-  * 
-  * 
+  * create ajax call in main.js file in public folder for searching artist
+  * test what is returned when not an artist - solved
+  * create POST in backend index.js file to pull frontend ajax get call data using artist.js model
+  * add picture/img src into the list view, updated styles
+  * create artistInfo.handlebars view and template, updated styles 
+  * add delete option for artist -- save for later...
+  * modify artistInfo.handlebars view to include adding a song by that artist
+  * create song.js model
+  * update main.js frontend file for #newSongForm and index.js backend to receive the call
+  * create verify artist clause -- save for later...
+  * how do I recall from my own database..?
   * 
   * 

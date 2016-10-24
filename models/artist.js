@@ -5,7 +5,8 @@ var Schema = mongoose.Schema
 var artistSchema = new Schema( { // can pass in an object with requirements
 	artist: String,
 	picture: String, // path - datatype of object for file??
-	details: Array,
+	spotifyID: String,
+	genres: Array,
 	songs: Array
 })
 
