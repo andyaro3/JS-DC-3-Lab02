@@ -21,14 +21,16 @@ app.engine('handlebars', exphbs({defaultLayout: 'main'}) )
 app.set('view engine', 'handlebars')
 
 // Create Initial Routes
-app.get('/', function( request, response ) {
+app.get("/", function( request, response ) {
   Artist.find({}, function (err, data) { // data = post.find({})
 		response.render("home", {artists: data}) 
 	})	
 })
 
 app.get("/songs", function( request, response ) {
-  response.render("songs") 
+  Song.find({}, function (err, data) { // data = post.find({})
+		response.render("songs", {songs: data}) 
+	})	
 })
 
 app.get("/addArtist", function( request, response ) {
@@ -51,6 +53,23 @@ app.get("/artist/:id/edit", function( request, response ) {
   })
 })
 
+app.get("/song/:id", function( request, response ) {
+  Song.findById( request.params.id, function( err, data ){
+    response.render( "songInfo", { songData: data } )
+  })
+})
+
+app.post("/artist/:id/edit", function( request, response ) {
+  Artist.findById(request.body.id, function( err, data ) {
+    data.picture = request.body.picture
+    data.genres = request.body.genres
+
+    data.save()
+
+    response.redirect("/artists/" + artist.spotifyID )
+  })
+})
+
 // app.post("/artists",  // ATTEMPT 2
 
 // 	// Artist
@@ -60,7 +79,7 @@ app.get("/artist/:id/edit", function( request, response ) {
 // 	console.log("saved new artist")
 // })
 
-app.post("/songs", function( request, response ) { // ATTEMPT 3
+app.post("/songs", function( request, response ) {
 	var newSong = new Song({
 		title: request.body.title,
 		artist: request.body.artist,

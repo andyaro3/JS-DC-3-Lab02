@@ -2,12 +2,13 @@
 
 <div class="dbList"> 
 {{ @index }}
-  <form id="editArtistForm" action="/editArtist" method="post"> 
+  <form id="editArtistForm" action="/artist/{{artistData._id}}/edit" method="post"> 
   	<img class="artistThumbnail" src="{{artistData.picture}}"/>
     <button type="submit" name="remove">Delete Artist</button> <button type="submit" name="submit">Update</button>
   <!-- 	<a class="editArtist" href="/artist/{{artistData._id}}/edit">Edit/Delete</a> -->
   	<h2 class="clearfix">Artist: {{artistData.artist}}</h2>
-  	<p class="dbItemNoHover">Genres: <textarea name="song1" rows="1" cols="40">{{artistData.genres}}</textarea></p>
+  	<p class="dbItemNoHover">Picture URL: <textarea name="picture" rows="1" cols="40">{{artistData.picture}}</textarea></p>
+    <p class="dbItemNoHover">Genres: <textarea name="genres" rows="1" cols="40">{{artistData.genres}}</textarea></p>
   	<p class="dbItemNoHover">Spotify ID: <span name="sID">{{artistData.spotifyID}}</span></p>
   <!-- 	<p class="dbItemNoHover">Songs: <textarea name="song1" rows="1" cols="40">{{artistData.songs}}</textarea></p> -->
   </form>

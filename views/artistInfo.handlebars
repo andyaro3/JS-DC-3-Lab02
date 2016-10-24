@@ -4,7 +4,7 @@
 {{ @index }}
 
 	<img class="artistThumbnail" src="{{artistData.picture}}"/>
-	<a class="editArtist" href="/artist/{{artistData._id}}/edit">Edit/Delete</a>
+	<button class="editArtist"><a href="/artist/{{artistData._id}}/edit">Edit/Delete</a></button>
 	<h2 class="clearfix">Artist: {{artistData.artist}}</h2>
 	<p class="dbItemNoHover">Genres: {{artistData.genres}}</p>
 	<p class="dbItemNoHover">Spotify ID: {{artistData.spotifyID}}</p>

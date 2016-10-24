@@ -52,6 +52,7 @@ $(document).ready(function() {
 		        // ADD SAVE
 		        saveArtist(Artist)
 		        console.log("saved")
+		        console.log( "URLify: " + urlify( $('input[name="artist"]').val() ) )
 		  //       $.ajax({
 				//     dataType: 'json',
 				//     data: $('#formID').serialize(),
@@ -103,13 +104,14 @@ $("#newSongForm").on("submit", function(event) {
 		        
 		        // Update the model
 		        Song.title = data.tracks.items[0].album.name;
-		        Song.artist = data.tracks.items[0].artists.name;
+		        Song.artist = data.tracks.items[0].artists[0].name;
 		        Song.spotifyID = data.tracks.items[0].id;
 		        Song.length = data.tracks.items[0].duration_ms; 
-		        Song.album = data.tracks.items[0].album.images[0];
+		        Song.album = data.tracks.items[0].album.images[0].url;
 
 		        // ADD SAVE
 		        saveSong(Song)
+		        console.log(Song)
 		        console.log("saved song")
 
 	    	} else {
@@ -127,48 +129,48 @@ $("#newSongForm").on("submit", function(event) {
   }); // close $ #newSongForm
 
 
-$("#editArtistForm").on("submit", function(event) {
-    event.preventDefault();
+// $("#editArtistForm").on("submit", function(event) {
+//     event.preventDefault();
 
-    // pull in existing artist
-    alert( $('span[name="sID"]').html() )
+//     // pull in existing artist
+//     alert( $('span[name="sID"]').html() )
 
 
-	// console.log( buildURL($('input[name="artist"]').val()) )
+// 	// console.log( buildURL($('input[name="artist"]').val()) )
 
-	// if ( $('input[name="artist"]').val() == "" ) {
-	// 	alert("You must enter an artist or band name into the search to add!")
-	// } else {
-	//     // Make the request from DB
-	//     $.ajax({
-	//       type: "GET",
-	//       url: buildURL($('input[name="artist"]').val()),
-	//       success: function (data) {
-	//       	if ( data.artists.total !== 0 ) {
+// 	// if ( $('input[name="artist"]').val() == "" ) {
+// 	// 	alert("You must enter an artist or band name into the search to add!")
+// 	// } else {
+// 	//     // Make the request from DB
+// 	//     $.ajax({
+// 	//       type: "GET",
+// 	//       url: buildURL($('input[name="artist"]').val()),
+// 	//       success: function (data) {
+// 	//       	if ( data.artists.total !== 0 ) {
 		        
-	// 	        // Update the model
-	// 	        Artist.artist = data.artists.items[0].name;
-	// 	        Artist.picture = data.artists.items[0].images[0].url;
-	// 	        Artist.spotifyId = data.artists.items[0].id;
-	// 	        Artist.genres = data.artists.items[0].genres; 
+// 	// 	        // Update the model
+// 	// 	        Artist.artist = data.artists.items[0].name;
+// 	// 	        Artist.picture = data.artists.items[0].images[0].url;
+// 	// 	        Artist.spotifyId = data.artists.items[0].id;
+// 	// 	        Artist.genres = data.artists.items[0].genres; 
 
-	// 	        // ADD SAVE
-	// 	        saveArtist(Artist)
-	// 	        console.log("saved")
+// 	// 	        // ADD SAVE
+// 	// 	        saveArtist(Artist)
+// 	// 	        console.log("saved")
 
-	//     	} else {
-	// 	        alert("No artist or band by that name or spelling yet... Please try again!")
-	// 	    } // close IF
+// 	//     	} else {
+// 	// 	        alert("No artist or band by that name or spelling yet... Please try again!")
+// 	// 	    } // close IF
 	        
 
-	//         // Rerender the View
-	//         // renderWeather();
+// 	//         // Rerender the View
+// 	//         // renderWeather();
 
-	//       } // close success:
-	//     }) // close $.ajax
-	// } //close IF ELSE
+// 	//       } // close success:
+// 	//     }) // close $.ajax
+// 	// } //close IF ELSE
 
-  }); // close $ #newArtistForm
+//   }); // close $ #editArtistForm
 
 
 
@@ -180,7 +182,8 @@ $("#editArtistForm").on("submit", function(event) {
 
 // Resourses
 function buildURL(artistName) {
-	var aName = artistName.replace(" ", "%20")
+	// var aName = artistName.replace(" ", "%20")
+	var aName = urlify(artistName)
 	var baseURL = "https://api.spotify.com/v1/search?q="
 	baseURL += aName
 	baseURL += "&type=artist"
@@ -189,7 +192,8 @@ function buildURL(artistName) {
 }
 
 function buildURL2(songName) {
-	var sName = songName.replace(" ", "%20")
+	// var sName = songName.replace(" ", "%20")
+	var sName = urlify(songName)
 	var baseURL = "https://api.spotify.com/v1/search?q="
 	baseURL += sName
 	baseURL += "&type=track"
@@ -213,4 +217,8 @@ function saveSong(data) {
 	    data: data, 
 	    success: data
 	});
+}
+
+function urlify( artist ) {
+  return encodeURI( artist )
 }

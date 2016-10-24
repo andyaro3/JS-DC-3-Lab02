@@ -1,0 +1,16 @@
+<div class="templateName"> songInfo </div>
+
+<div class="dbList"> 
+{{ @index }}
+
+	<img class="artistThumbnail" src="{{songData.album}}"/>
+	<button class="editArtist"><a href="/song/{{songData._id}}/edit">Edit/Delete</a></button>
+	<h2 class="clearfix">Title: {{songData.title}}</h2>
+	<p class="dbItemNoHover">Artist: {{songData.artist}}</p>
+	<p class="dbItemNoHover">Spotify ID: {{songData.spotifyID}}</p>
+	<p class="dbItemNoHover">Time in ms: {{songData.length}}</p>
+</div>
+
+<div>
+	<p class="templateName">{{songData}}</p>
+</div>
