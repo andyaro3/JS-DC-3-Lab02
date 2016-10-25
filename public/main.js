@@ -131,11 +131,11 @@ $("#newSongForm").on("submit", function(event) {
 
 $("#editArtistForm").on("submit", function(event) {
     event.preventDefault();
-
+    // console.log($('textarea[name="genres"]').text())
 	var editArtist = ({ // ?????
 			uid: $('textarea[name="uid"]').text(),
 			picture: $('textarea[name="picture"]').text(), // String
-			genres: [ $('textarea[name="picture"]').text() ], // Array
+			genres: [ $('textarea[name="genres"]').text() ], // Array
 		})
 
 	    // Make the request from DB
@@ -144,7 +144,7 @@ $("#editArtistForm").on("submit", function(event) {
 		    url: "/artistEdit",
 		    data: editArtist, 
 		    success: function (data) {
-		    	console.log(data)
+		    	return data // what do i put here???????????????????????
 		    } // close success
 		}); // close ajax
 	        
