@@ -129,48 +129,28 @@ $("#newSongForm").on("submit", function(event) {
   }); // close $ #newSongForm
 
 
-// $("#editArtistForm").on("submit", function(event) {
-//     event.preventDefault();
+$("#editArtistForm").on("submit", function(event) {
+    event.preventDefault();
 
-//     // pull in existing artist
-//     alert( $('span[name="sID"]').html() )
+	var editArtist = ({ // ?????
+			uid: $('textarea[name="uid"]').text(),
+			picture: $('textarea[name="picture"]').text(), // String
+			genres: [ $('textarea[name="picture"]').text() ], // Array
+		})
 
-
-// 	// console.log( buildURL($('input[name="artist"]').val()) )
-
-// 	// if ( $('input[name="artist"]').val() == "" ) {
-// 	// 	alert("You must enter an artist or band name into the search to add!")
-// 	// } else {
-// 	//     // Make the request from DB
-// 	//     $.ajax({
-// 	//       type: "GET",
-// 	//       url: buildURL($('input[name="artist"]').val()),
-// 	//       success: function (data) {
-// 	//       	if ( data.artists.total !== 0 ) {
-		        
-// 	// 	        // Update the model
-// 	// 	        Artist.artist = data.artists.items[0].name;
-// 	// 	        Artist.picture = data.artists.items[0].images[0].url;
-// 	// 	        Artist.spotifyId = data.artists.items[0].id;
-// 	// 	        Artist.genres = data.artists.items[0].genres; 
-
-// 	// 	        // ADD SAVE
-// 	// 	        saveArtist(Artist)
-// 	// 	        console.log("saved")
-
-// 	//     	} else {
-// 	// 	        alert("No artist or band by that name or spelling yet... Please try again!")
-// 	// 	    } // close IF
+	    // Make the request from DB
+	    $.ajax({
+		    type: "POST",
+		    url: "/artistEdit",
+		    data: editArtist, 
+		    success: function (data) {
+		    	console.log(data)
+		    } // close success
+		}); // close ajax
 	        
-
-// 	//         // Rerender the View
-// 	//         // renderWeather();
-
-// 	//       } // close success:
-// 	//     }) // close $.ajax
 // 	// } //close IF ELSE
 
-//   }); // close $ #editArtistForm
+  }); // close $ #editArtistForm
 
 
 

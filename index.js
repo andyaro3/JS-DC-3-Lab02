@@ -59,14 +59,14 @@ app.get("/song/:id", function( request, response ) {
   })
 })
 
-app.post("/artist/:id/edit", function( request, response ) {
-  Artist.findById(request.body.id, function( err, data ) {
+app.post("/artistEdit", function( request, response ) {
+  Artist.findById(request.body.uid, function( err, data ) { // add ID to artistEdit
     data.picture = request.body.picture
     data.genres = request.body.genres
 
-    data.save()
+    console.log( "Genres: " + request.body.genres)
 
-    response.redirect("/artists/" + artist.spotifyID )
+    response.redirect("/artist/" + artist.spotifyID )
   })
 })
 
