@@ -5,7 +5,7 @@ var exphbs = require("express-handlebars")
 var bodyParser = require("body-parser")
 var mongoose = require("mongoose")
 var Handlebars = require("handlebars") // needed for img URL within HTML ???
-mongoose.connect("mongodb://localhost:27017/guestbook")
+mongoose.connect("mongodb://localhost:27017/tunr")
 // nodemon
 
 var app = express()
@@ -19,6 +19,8 @@ app.use( bodyParser.urlencoded({extended: true})) // used for forms
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}) )
 app.set('view engine', 'handlebars')
+
+
 
 // Create Initial Routes
 app.get("/", function( request, response ) {
