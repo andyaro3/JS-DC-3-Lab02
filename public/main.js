@@ -138,7 +138,7 @@ $("#editArtistForm").on("submit", function(event) {
 			genres: [ $('textarea[name="genres"]').text() ], // Array
 		})
 
-	    // Make the request from DB
+	    // Make request to DB
 	    $.ajax({
 		    type: "POST",
 		    url: "/artistEdit",
@@ -147,8 +147,6 @@ $("#editArtistForm").on("submit", function(event) {
 		    	return data // what do i put here???????????????????????
 		    } // close success
 		}); // close ajax
-	        
-// 	// } //close IF ELSE
 
   }); // close $ #editArtistForm
 

@@ -61,12 +61,13 @@ app.get("/song/:id", function( request, response ) {
 
 app.post("/artistEdit", function( request, response ) {
   Artist.findById(request.body.uid, function( err, data ) { // add ID to artistEdit
-  		if (data.picture !== undefined) {
-			data.picture = request.body.picture
-		} // a few dont have pictures, causes err
-    	data.genres = request.body.genres
-    
-    response.redirect("/artist/" + data._id )
+  	console.log(request.body.genres)
+  // 		if (data.picture !== undefined) {
+		// 	data.picture = request.body.picture
+		// } // a few dont have pictures, causes err
+  //   	data.genres = request.body.genres
+
+  //   response.redirect("/artist/" + data._id )
     console.log("artist updated")
   })
 })
